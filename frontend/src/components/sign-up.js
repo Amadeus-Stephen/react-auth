@@ -8,7 +8,6 @@ class Signup extends Component {
 		super()
 		this.state = {
 			username: '',
-			email:'',
 			password: '',
 			confirmPassword: '',
 			errors: []
@@ -25,9 +24,8 @@ class Signup extends Component {
 	handleSubmit(event) {
 		let errors = this.state.errors
 		event.preventDefault()
-
 		// checks if form is filled out
-		if (!this.state.username || !this.state.email || !this.state.password || this.state.confirmPassword ) {
+		if (!this.state.username || !this.state.password || this.state.confirmPassword ) {
 			errors.push("Please Fill out the entire form")
 			this.setState({errors})
         //creates a new user based of this state 
@@ -71,10 +69,6 @@ render() {
 				{this.renderErrors()}
 				<label htmlFor="name">Name</label>
 				<input type="name" onChange={e => this.handleChange(e)} value={this.state.name} id="name" name="name" className="form-control" placeholder="Enter Name" />
-			  </div>
-			  <div className="form-group">
-				<label htmlFor="email">Email</label>
-				<input type="email" onChange={e => this.handleChange(e)} value={this.state.email} id="email" name="email" className="form-control" placeholder="Enter Email"/>
 			  </div>
 			  <div className="form-group">
 				<label htmlFor="password">Password</label>
